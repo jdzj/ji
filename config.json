@@ -1,10 +1,11 @@
 {
     "title":"菜书记",
-    "subTitle":"记录这很菜的一生",
+    "subTitle":"我不是书记，我只是记录这很菜的一生。",
+    "script":"<script async src='//api.vvhan.com/api/ian/rand'></script>",
     "avatarUrl":"https://avatars.githubusercontent.com/u/2352309?v=4",
     "GMEEK_VERSION":"last",
     "displayTitle":"菜书记",
-    "homeUrl":"http://ji.cshu.cn",
+    "homeUrl":"https://ji.cshu.cn",
     "faviconUrl":"https://avatars.githubusercontent.com/u/2352309?v=4",
     "email":"topy@vip.qq.com",
     "startSite":"09/05/1983",
