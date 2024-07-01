@@ -4,7 +4,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
     <link rel="icon" href="https://avatars.githubusercontent.com/u/2352309?v=4"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
@@ -77,8 +77,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>经过这次严重的流血事件，爸妈也很重视我的病情，后来有次带我到金华一家医院去治疗鼻子，治疗的情景我还记得很清楚，当时医生检查完后，用一种黄色的药水往我鼻子里涂，涂的时候是用镊子伸进去的，特别特别难受，药水也会流进嘴里，是一种难以描述的味道，还喝下去不少。不过神奇的是，经过这次治疗，后来我就很少很少流鼻血了，所以我一直很感谢这家医院这个医生。女儿小时候有段时间也经常流鼻血，我害怕她的鼻子有疾病，专门带她也到金华的医院去检查，所幸检查是正常的，可能只是她上火的关系。</p>
 </div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️菜书记</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://ji.cshu.cn"> 菜书记 </a>
 <p>
@@ -133,6 +135,8 @@ console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");

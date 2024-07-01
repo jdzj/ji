@@ -4,7 +4,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="//cdn.staticfile.net/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
     <link rel="icon" href="https://avatars.githubusercontent.com/u/2352309?v=4"><script>
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
@@ -94,8 +94,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>生活就是这样，一个变故引发一个想法，今天突然就想换个名字，微录阁这个名字我不喜欢了，我要改名为菜书。因为域名的式微，com、net等后缀不断涨价，现在已经接近 100 元一年了，对 com 的好感度不断降低，今天搜到 cshu.cn在售，买下启用。早两年，我会考虑搜索引擎是否收录，对 seo 有影响，现在我什么都不在乎了，我只在乎自己的感受，这其实本来就是为了自己开心。</p>
 <p>所以我食言了，博客启用了 cshu.cn 域名。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">❤️菜书记</div>
+
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
+
 </div>
     <div id="footer">Copyright © <span id="year"></span><a href="https://ji.cshu.cn"> 菜书记 </a>
 <p>
@@ -150,6 +152,8 @@ console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
 
 function openComments(){
     cm=document.getElementById("comments");
