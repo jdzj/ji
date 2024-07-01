@@ -9,9 +9,9 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="来自@LARA的馒头制作方法，微录阁亲测成功的蓬松好吃的馒头配方。">
+<meta name="description" content="来自LARA(x上)的馒头制作方法，微录阁亲测成功的蓬松好吃的馒头配方。">
 <meta property="og:title" content="馒头配方">
-<meta property="og:description" content="来自@LARA的馒头制作方法，微录阁亲测成功的蓬松好吃的馒头配方。">
+<meta property="og:description" content="来自LARA(x上)的馒头制作方法，微录阁亲测成功的蓬松好吃的馒头配方。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://ji.cshu.cn/post/man-tou-pei-fang.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/2352309?v=4">
@@ -70,7 +70,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p>来自<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/lara/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/lara">@lara</a>的馒头制作方法，微录阁亲测成功的蓬松好吃的馒头配方。<br>
+<div class="markdown-body" id="postBody"><p>来自LARA(x上)的馒头制作方法，微录阁亲测成功的蓬松好吃的馒头配方。<br>
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/jdzj/ji/assets/2352309/669bccfb-8323-43b3-9901-eda48bb7a96c"><img src="https://github.com/jdzj/ji/assets/2352309/669bccfb-8323-43b3-9901-eda48bb7a96c" alt="image" style="max-width: 100%;"></a></p>
 <p>材料：中筋面粉500g，酵母5g，水（牛奶）240g~260g</p>
 <p>做法：</p>
@@ -141,7 +141,11 @@ console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5p
 <script>
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
-
+cmButton=document.getElementById("cmButton");
+    span=document.createElement("span");
+    span.setAttribute("class","Counter");
+    span.innerHTML="2";
+    cmButton.appendChild(span);
 
 
 function openComments(){
