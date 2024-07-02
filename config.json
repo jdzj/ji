@@ -10,8 +10,8 @@
     "startSite":"09/05/1983",
     "onePageListNum":15,
     "singlePage":["about"],
-    "iconList":{"music":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"},
-    "exlink":{"music":"https://music.163.com/#/playlist?id=222232&userid=179226"},
+    "iconList":{"nav":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"},
+    "exlink":{"nav":"https://cshu.cn/nav"},
     "commentLabelColor":"#006b75",
     "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
     "i18n":"CN",
@@ -26,7 +26,7 @@
     "indexScript":"",
     "showPostSource":1,
     "rssSplit":"sentence",
-    "bottomText":"❤️菜书记",
+    "bottomText":" 公众号❤️菜书",
     "ogImage":"https://avatars.githubusercontent.com/u/2352309?v=4"
     
 }
