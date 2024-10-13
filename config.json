@@ -27,6 +27,8 @@
     "showPostSource":1,
     "rssSplit":"sentence",
     "bottomText":" 公众号❤️菜书",
-    "ogImage":"https://avatars.githubusercontent.com/u/2352309?v=4"
-    
+    "ogImage":"https://avatars.githubusercontent.com/u/2352309?v=4",
+    "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekBSZ.js'></script>",
+    "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script>",
+    "script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>"
 }
