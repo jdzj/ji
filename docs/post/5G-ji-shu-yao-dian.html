@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark_colorblind" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    <script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script>
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/2352309?v=4"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="网络的发展历程：
+
+1G（大哥大）-2G（功能机）-3G（智能机）-4G（高级智能机），从90年开始每10年一换代；从人与人的通信到人与物的通信。">
+<meta property="og:title" content="5G技术要点">
+<meta property="og:description" content="网络的发展历程：
+
+1G（大哥大）-2G（功能机）-3G（智能机）-4G（高级智能机），从90年开始每10年一换代；从人与人的通信到人与物的通信。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://cshu.cn/post/5G-ji-shu-yao-dian.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/2352309?v=4">
+<title>5G技术要点</title>
+
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">5G技术要点</h1>
+<div class="title-right">
+    <a href="https://cshu.cn" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/jdzj/ji/issues/156" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p>网络的发展历程：</p>
+<p>1G（大哥大）-2G（功能机）-3G（智能机）-4G（高级智能机），从90年开始每10年一换代；从人与人的通信到人与物的通信。</p>
+<p>5G技术挑战：</p>
+<p>5G技术挑战要点1：大带宽，低频单站带宽超5G，高频单站带宽近20G，接入环需要50、100G，汇聚环需要400G或DWDM，核心网需要T级别。</p>
+<p>5G技术挑战要点2：灵活连接。MEC流量就近转发，L3下沉到汇聚；ex2协同就近转发，基站之间互联；物联网V2X业务就近转发，时延短，L3下沉到接入。</p>
+<p>5G技术挑战要点3：网络分片。E2E切片为大带宽、低时延、大连接的差异化SLA需求进行分片。</p>
+<p>5G技术挑战要点4：低时延。URLLC场景需求，端到端时延125毫秒，eMBB场景需求，端到端时延小于10微秒。</p>
+<p>5G技术挑战要点5：时间同步（TAE）。精度提升至几百纳秒。</p>
+<p>5G技术挑战要点6：管控运维。封闭到开放，刚性到柔性，低效到高效。</p>
+<p>5G三大应用场景：</p>
+<p>eMBB（移动增强宽带）、uRLLC（低时延高可靠）、mMTC（低功耗大连接）;</p>
+<p>eMBB：可以分为两类，一类是连续广域覆盖场景，另一类是热点高容量。</p>
+<p>连续广域覆盖场景：用户体验速率100MbPS，移动性500公里每小时;</p>
+<p>热点高容量：用户体验速率1Gbps,峰值20Gbps，流量密度每平方公里10Tbps。</p>
+<p>uRLLC：空口时延1ms，5个9的可靠性；</p>
+<p>mMTC: 连接密度每平方公里百万连接，低功耗，成本低（芯片1美金，模组5美金）；</p>
+<p>三大应用场景下的典型应用：</p>
+<p>eMBB：4K超高清视频，AR、VR，云游戏，裸眼3D；</p>
+<p>uRLLC，车联网，工业控制，智能电网；</p>
+<p>mMTC：万物互联。</p>
+<p>5G网络总体架构：</p>
+<p>5G网络的总体架构（端到端）：终端-&gt;无线网-&gt;传送网-&gt;核心网-&gt;5G业务</p>
+<p>总体架构发生的变化：</p>
+<p>终端：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    更多形态的终端（除了智能手机了AR、VR眼镜、无人机等）；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    更高的发射频率（比现在高3db，达到26dbM）；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    更多天线；
+</code></pre>
+</li>
+</ol>
+<p>无线网：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    更大带宽（6G赫兹以下低频段达到一百兆带宽，6G赫兹以上高频段达到四百兆带宽）；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    更多天线数（64通道192阵子）；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    系统设计（出现波束的概念、新的参考信息DMRS的设计、新的编码方式）；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    灵活的参数（更短帧配置和调度的minislot参数）；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    更新结构（CU/DU分离的网络架构、高层设计出现变化、出现新的终端状态）。
+</code></pre>
+</li>
+</ol>
+<p>传送网：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    更大交换容量（从640G提升到12.8T）；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    更高性能（传输时延达到十纳秒级、时间误差达到纳秒级）；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    支持切片技术；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    引入SDN技术（实现全局的智能调度、智能运维）
+</code></pre>
+</li>
+</ol>
+<p>核心网的变化：软件化、服务化</p>
+<p>IT化、互联网化、极简化、服务化。</p>
+<p>出现了总线型的架构及不同的功能模块，实现了自定义的网络功能和连接，每个功能通过总线连接，需要使用时调用总线上接口。</p>
+<p>5G的组网模式：</p>
+<p>出现了独立组网（SA）和非独立组网（NSA）两种模式。</p>
+<p>非独立组网：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    基站设备可能会依托LTE进行网络连接；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    信令都是经过4G基站4G核心网连接；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    5G基站只进行数据分流；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    5G网络不能独立运行必须依托4G网络的存在；
+</code></pre>
+</li>
+</ol>
+<p>独立组网：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    从终端到基站到核心网都是独立的5G新设备；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    5G网络可以独立运营；
+</code></pre>
+</li>
+</ol>
+<p>5G空口四大创新：</p>
+<p>新架构、新设计、新频段、新天线。</p>
+<p>新架构：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    以用户为中心（围绕用户进行网络的设计和建设、更好的为用户服务）；
+</code></pre>
+</li>
+</ol>
+<p>a)         智能感知用户需求；</p>
+<p>b)         业务靠近用户部署（使用边缘计算，适用于不需要回到远端服务器的内部数据。可减轻网络负担和业务的传输时延）；</p>
+<p>c)         为用户定制网络（网络切片，根据用户的业务需求对网络进行精细切分）；</p>
+<ol start="2">
+<li>
+<pre class="notranslate"><code class="notranslate">    CU/DU两级架构（集中控制的CU节点、分布式的DU设备，RLC层以下的协议栈位于DU设备，以上的位于CU设备）；
+</code></pre>
+</li>
+</ol>
+<p>a)         基于CU，引入大数据与人工智能，构建智能网络（降低运维成本、提高网络效率、实现业务快速上线、使数字化服务成为可能）；</p>
+<p>新设计：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    灵活上下行时隙切换；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    多种参数配置；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    动态帧结构和资源配置；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    新的系统传播方式；
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    新UE的终端状态；
+</code></pre>
+</li>
+</ol>
+<p>新频段：</p>
+<p>低、中、高全频段接入（现在使用的900MHz、1800MHz，最主要的3.5GHz和4.9GHz，高频包括24GHz、37GHz）；</p>
+<p>a)         低频段（例如900 MHz）（由于穿透性好，带宽窄适用于大连接、低时延、连续覆盖、深度覆盖、高速移动等业务场景）；</p>
+<p>b)         中频段（例如3.5GHz）（具备较大的连接带宽、中等穿透能力、大规模天线阵列，基础覆盖、保证全网平均性能）；</p>
+<p>高频段（例如26GHz）（较中频段进一步扩展了带宽和天线阵列功能，但穿透能力较差更适合热点、室内、确保单点区域极致性能）；</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/ef9b98f7-e8ca-4bd6-b12e-ba5a4bcdd9a2"><img src="https://github.com/user-attachments/assets/ef9b98f7-e8ca-4bd6-b12e-ba5a4bcdd9a2" alt="Image" style="max-width: 100%;"></a></p>
+<p>新天线：</p>
+<p>大规模天线和增强方案（出现大规模天线和增强技术、新的波速管理技术），5G在天线技术有比较大幅的提升，性能网速都有较大提升。</p>
+<p><b>5G对传输网提出的技术需求：</b></p><p><b> </b></p>
+要素 | 4G | 5G
+-- | -- | --
+网络架构 | 汇聚架构，基于VPN的连接 | 云化的架构，基于网络切片
+转发连接 | 南北向流量为主，流量固定 | 以数据中心为中心，东西向流量为主，流量灵活
+带宽 | 传输网带宽320兆 | 传输网带宽10G
+时延 | 传输时延10微秒 | 传输时延1微秒
+同步 | 基站间同步时间1.5毫秒 | 基站间同步时间200纳秒
+<p>5G传送网新技术——SPN：</p>
+<p>SPN是对PTN技术的演进，可后向兼容PTN技术。切片分组网SPN是一种新传输网技术体制，包括大容量接口技术，时隙交叉传输平面SE-TP，面向传输组网的灵活转发SR-TP，超高精度时间同步技术，控制面采用SDN进行统一管控，SPN分别在物理层，链路层和转发控制层采用创新技术，来满足5G传输网络的需要。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/b15cf873-f15c-4142-871b-626c7daaf2a1"><img src="https://github.com/user-attachments/assets/b15cf873-f15c-4142-871b-626c7daaf2a1" alt="Image" style="max-width: 100%;"></a><br>
+切片传送层：切片物理层的编解码。</p>
+<p>切片通道层：切片以太网通道的组网处理，支持低速的转发。</p>
+<p>切片分组层：实现数据的路由，进行数据的管控和高精度的时间管控。</p>
+<p>SPN技术的特点：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    大带宽
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    低时延：最低时延可达500纳秒。
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    网络切片：通过时隙交叉实现业务硬隔离，网络灵活高效的分片。
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    灵活连接：支持基站间接口及基站与核心网间接口的灵活连接。
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    时间同步：超高精度的时间同步。
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    统一管控：标准化的南向和北向接口。
+</code></pre>
+</li>
+</ol>
+<p>5G整体传输的情况：</p>
+<p>前传网络：由于光纤较为充足，采用光纤直连。光纤紧缺时采用SPN-lite技术。</p>
+<p>中传、回传网络：主要基于SPN技术组网。</p>
+<p>5G传输业务的特点：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    分层接入
+</code></pre>
+</li>
+</ol>
+<p>a)         基站在接入层接入。</p>
+<p>b)         CU、MEC集中在汇聚层。</p>
+<p>c)         核心网在核心层接入。</p>
+<ol start="2">
+<li>
+<pre class="notranslate"><code class="notranslate">    要求把业务灵活终结：
+</code></pre>
+</li>
+</ol>
+<p>a)         低时延业务终结在汇聚层和接入层。</p>
+<p>b)         支持本地分流。</p>
+<p>网络切片——为什么需要网络切片：</p>
+<p>提供差异化组网能力，从4G的one-fit-all的组网架构向按需按需定制化组网进行演进。</p>
+<p>什么是网络切片：</p>
+<p>网络切片是提供特定网络能力的端到端的逻辑专用网络。</p>
+<p>切片实例 = 接入网 + 传输承载 + 核心网</p>
+<p>网络切片的特征：</p>
+<p>定制性：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    网络能力可定制
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    网络性能可定制
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    接入方式可定制
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    服务范围/部署策略可定制
+</code></pre>
+</li>
+</ol>
+<p>隔离性、专用性：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    切片服务于特定的应用场景
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    不同切片之间互相隔离、互不影响
+</code></pre>
+</li>
+</ol>
+<p>质量可保证：</p>
+<p>按照垂直行业需求，满足其SLA服务质量要求</p>
+<p>统一平台：</p>
+<p>网络切片将基于NFV/SDN的统一基础设施灵活构建</p>
+<p>5G网络切片的核心价值：</p>
+<p>网络切片及服务：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    为不同垂直行业提供不同、相互隔离、功能可定制的网络服务
+</code></pre>
+</li>
+<li>
+<pre class="notranslate"><code class="notranslate">    实现客户化定制的网络切片的设计、部署和运维，各域可以在功能场景、设计方案上独立进行裁剪。
+</code></pre>
+</li>
+</ol>
+<p>性能可保障：</p>
+<ol>
+<li>
+<pre class="notranslate"><code class="notranslate">    租户会与运营商签订服务合同，其中规定租户使用的业务所对应的SLA。
+</code></pre>
+</li>
+</ol>
+<p>SLA通常包括：</p>
+<p>a)         安全性/私密性</p>
+<p>b)         可见性/可管理性</p>
+<p>c)         可靠性/可用性</p>
+<p>d)         具体的业务特性（业务类型、空口需求、定制化网络功能等）</p>
+<p>e)         相应的性能指标（时延、吞吐率、丢包率、掉话率等）</p>
+<ol start="2">
+<li>
+<pre class="notranslate"><code class="notranslate">    拉通各域来实现端到端SLA保证
+</code></pre>
+</li>
+</ol>
+<p>网络切片提供的增值服务：</p>
+<p>资源服务：第三方的应用利用云资源或边缘计算平台资源将其部署在运营商网络里，在网络运营的同时实现资源运营。</p>
+<p>网络服务：边缘计算、CDN、路径优化服务搭载在网络切片上整体进行打包售卖。</p>
+<p>管理服务：开放切片管理和运营能力。</p>
+<p>网络切片的共享程度：</p>
+<p>共享程度分为：完全专用、共享组成部分（无线、传输、核心网等）。</p>
+<p>资源利用率与高网络代价及高性能间寻找平衡。</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"> 公众号❤️菜书</div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://cshu.cn">菜书记</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if("09/05/1983"!=""){
+    var startSite=new Date("09/05/1983");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","jdzj/ji");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>
+
+</html>
